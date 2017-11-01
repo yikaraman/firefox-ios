@@ -206,10 +206,10 @@ class LoginManagerTests: KIFTestCase {
         // Tap the ‘Copy’ menu option
         EarlGrey.select(elementWithMatcher: grey_accessibilityID("passwordField")).perform(grey_tap())
         waitForMatcher(name: "Copy")
-        
-        XCTAssertEqual(UIPasteboard.general.string, "passworda0")
+    
         tester().tapView(withAccessibilityLabel: "Logins")
         closeLoginManager()
+        XCTAssertEqual(UIPasteboard.general.string, "passworda0")
     }
     
     func testDetailWebsiteMenuCopy() {
